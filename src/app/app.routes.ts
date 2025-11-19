@@ -8,6 +8,7 @@ import { Customer } from './layouts/customer/customer';
 import { Admin } from './layouts/admin/admin';
 import { ProductCustomization } from './pages/product-customization/product-customization';
 import { ProductsCustom } from './pages/products-custom/products-custom';
+import { Error } from './pages/error/error';
 
 export const routes: Routes = [
   { path: 'admin', component: Admin, children: [] }, //ez majd csak később
