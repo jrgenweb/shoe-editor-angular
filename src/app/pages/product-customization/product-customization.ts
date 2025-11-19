@@ -39,6 +39,6 @@ export class ProductCustomization implements OnInit {
     this.selectedProperties = selectedProperties;
   }
   addToCart(amount: number) {
-    this.cartService.add(this.product!, this.selectedProperties, amount);
+    this.cartService.add(this.product!, amount, this.selectedProperties);
   }
 }

@@ -11,7 +11,9 @@ import { Color } from '../../components/customer/color/color';
   styleUrl: './cart.scss',
 })
 export class Cart {
-  constructor(public cartService: CartService) {}
+  constructor(public cartService: CartService) {
+    cartService.cart$.subscribe((c) => console.log(c));
+  }
 
   removeItem(idx: number) {
     this.cartService.remove(idx);

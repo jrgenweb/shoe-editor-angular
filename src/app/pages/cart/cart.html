@@ -39,7 +39,9 @@
           </tr>
           }@else{
           <tr>
-            <td><img [src]="item.image" [alt]="item.name" /></td>
+            <td>
+              <img [src]="item.image" [alt]="item.name" class="image" />
+            </td>
 
             <td>{{ item.name }}</td>
             <td>{{ item.price }}</td>

@@ -8,7 +8,11 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class Cart {
   cart$ = new BehaviorSubject<ICart>({ total: 0, items: [] });
-  add(product: IProduct, customization: ISelectedProperty[], quantity: number) {
+  add(
+    product: IProduct,
+    quantity: number,
+    customization?: ISelectedProperty[]
+  ) {
     const newTotal = this.cart$.value.total + product.price * quantity;
 
     this.cart$.next({
