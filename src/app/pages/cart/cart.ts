@@ -3,16 +3,17 @@ import { Cart as CartService } from '../../shared/services/cart';
 import { AsyncPipe } from '@angular/common';
 import { ProductCustomViewer } from '../../components/customer/product-custom-viewer/product-custom-viewer';
 import { Color } from '../../components/customer/color/color';
+import { HufPipe } from '../../shared/pipes/huf-pipe';
 
 @Component({
   selector: 'app-cart',
-  imports: [AsyncPipe, ProductCustomViewer, Color],
+  imports: [AsyncPipe, ProductCustomViewer, Color, HufPipe],
   templateUrl: './cart.html',
   styleUrl: './cart.scss',
 })
 export class Cart {
   constructor(public cartService: CartService) {
-    cartService.cart$.subscribe((c) => console.log(c));
+    //cartService.cart$.subscribe((c) => console.log(c));
   }
 
   removeItem(idx: number) {

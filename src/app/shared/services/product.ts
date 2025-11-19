@@ -30,6 +30,7 @@ const products: IProduct[] = [
           colors: [
             { label: 'Sárga', value: 'yellow' },
             { label: 'Zöld', value: 'green' },
+            { label: 'Lila', value: 'purple' },
           ],
         },
         {
@@ -98,6 +99,7 @@ const products: IProduct[] = [
 })
 export class Product {
   products$ = new BehaviorSubject<IProduct[]>([]);
+
   getAll() {
     this.products$.next(products.filter((product) => !product.customization));
     return this.products$;
@@ -107,7 +109,12 @@ export class Product {
     return this.products$;
   }
 
-  getCustomizableById(id: number) {
+  getById(id: number) {
     return products.find((product) => product.id === id);
+  }
+  getCustomizableById(id: number) {
+    return products.find(
+      (product) => product.id === id && product.customization
+    );
   }
 }

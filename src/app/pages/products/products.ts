@@ -5,10 +5,11 @@ import { AsyncPipe } from '@angular/common';
 import { ShortenPipe } from '../../shared/pipes/shorten-pipe';
 import { IProduct } from '../../shared/interfaces/iproduct';
 import { Cart } from '../../shared/services/cart';
+import { HufPipe } from '../../shared/pipes/huf-pipe';
 
 @Component({
   selector: 'app-products',
-  imports: [AsyncPipe, ShortenPipe, RouterLink],
+  imports: [AsyncPipe, ShortenPipe, RouterLink, HufPipe],
   templateUrl: './products.html',
   styleUrl: './products.scss',
 })

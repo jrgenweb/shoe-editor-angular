@@ -10,10 +10,11 @@ import {
 import { Product } from '../../shared/services/product';
 import { ActivatedRoute } from '@angular/router';
 import { Cart } from '../../shared/services/cart';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-product-customization',
-  imports: [ProductCustomViewer, CustomPropertySelect],
+  imports: [ProductCustomViewer, CustomPropertySelect, FormsModule],
   templateUrl: './product-customization.html',
   styleUrl: './product-customization.scss',
 })
@@ -21,6 +22,8 @@ export class ProductCustomization implements OnInit {
   properties: IProperty[] = [];
   selectedProperties: ISelectedProperty[] = [];
   product!: IProduct | undefined;
+
+  quantity = 1;
 
   constructor(
     private productService: Product,
@@ -38,7 +41,7 @@ export class ProductCustomization implements OnInit {
   onChange(selectedProperties: ISelectedProperty[]) {
     this.selectedProperties = selectedProperties;
   }
-  addToCart(amount: number) {
-    this.cartService.add(this.product!, amount, this.selectedProperties);
+  addToCart() {
+    this.cartService.add(this.product!, this.quantity, this.selectedProperties);
   }
 }

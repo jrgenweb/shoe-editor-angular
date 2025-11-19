@@ -1,4 +1,4 @@
-import { IProduct, ISelectedProperty } from './iproduct';
+import { ISelectedProperty } from './iproduct';
 
 export interface ICart {
   total: number;
