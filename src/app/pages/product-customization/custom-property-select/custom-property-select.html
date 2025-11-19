@@ -1,0 +1,23 @@
+<div class="d-flex">
+  <button class="btn btn-link" (click)="previousProp()">Előző</button>
+  <h4>{{ properties[currentProp].title }}</h4>
+  <button class="btn btn-link" (click)="nextProp()">következő</button>
+</div>
+<div class="color-selector d-flex gap-2">
+  <div class="border-1 border d-inline-block p-1 rounded-circle">
+    <app-color
+      color="transparent"
+      title="Nincs"
+      (click)="onChange(properties[currentProp].pathId, 'transparent')"
+    ></app-color>
+  </div>
+  @for(color of currentColors;track color.value){
+  <div class="border-1 border d-inline-block p-1 rounded-circle">
+    <app-color
+      [color]="color.value"
+      [title]="color.label"
+      (click)="onChange(properties[currentProp].pathId, color.value)"
+    ></app-color>
+  </div>
+  }
+</div>

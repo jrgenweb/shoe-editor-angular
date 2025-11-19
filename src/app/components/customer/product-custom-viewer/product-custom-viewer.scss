@@ -1,0 +1,11 @@
+.viewer {
+    width: 100%;
+    aspect-ratio: 1;
+
+    svg {
+        display: block;
+        width: 100%;
+        height: inherit;
+        object-fit: cover;
+    }
+}

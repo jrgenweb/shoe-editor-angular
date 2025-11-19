@@ -1,0 +1,24 @@
+<h2 class="mb-3">Testreszabható termékeink</h2>
+
+<div class="row">
+  <div class="col-12">
+    @for(product of productService.products$ | async;track product.id){
+
+    <div class="card col-3">
+      <img class="card-img-top" [src]="product.image" [alt]="product.name" />
+      <div class="card-body">
+        <h4 class="card-title">{{ product.name }}</h4>
+        <p class="card-text">{{ product.description | shorten : 30 }}</p>
+      </div>
+      <div class="card-footer text-end">
+        <a
+          class="btn btn-link"
+          [routerLink]="'/product-customize/' + product.id"
+        >
+          Testreszabás
+        </a>
+      </div>
+    </div>
+    }
+  </div>
+</div>

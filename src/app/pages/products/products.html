@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-12 col-md-3">
+    <h3>Termék kategóriák</h3>
+    <button class="btn btn-primary my-3 w-100" routerLink="/products/custom">
+      Testreszabás
+    </button>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <a routerLink="/products" class="btn btn-link">Félcipők</a>
+      </li>
+      <li class="list-group-item">
+        <a routerLink="/products" class="btn btn-link">Bakancsok</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-12 col-md-9">
+    @if(isCustomPage){
+    <h2>Testreszabható termékeink</h2>
+    }@else{
+    <h2>Termékeink</h2>
+    } @for(product of productService.products$ | async;track product.id){
+
+    <div class="card col-12 col-md-6 col-lg-4">
+      <img class="card-img-top" [src]="product.image" [alt]="product.name" />
+      <div class="card-body">
+        <h4 class="card-title">{{ product.name }}</h4>
+        <p class="card-text">{{ product.description | shorten : 30 }}</p>
+        <span class="card-text fw-bold">{{ product.price }}</span>
+      </div>
+      <div class="card-footer">
+        @if(isCustomPage){
+        <a
+          class="btn btn-link"
+          [routerLink]="'/product-customize/' + product.id"
+        >
+          Testreszabás
+        </a>
+        } @else{
+        <div class="action d-flex gap-1 justify-content-between">
+          <button class="btn btn-link">Megtekintés</button>
+          <button class="btn btn-primary">Kosárba</button>
+        </div>
+        }
+      </div>
+    </div>
+
+    }
+  </div>
+</div>
