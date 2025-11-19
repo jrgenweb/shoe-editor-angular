@@ -18,7 +18,8 @@ export const routes: Routes = [
     children: [
       { path: 'home', component: Home },
       { path: 'products', component: Products },
-      { path: 'products/custom', component: ProductsCustom },
+      { path: 'products/:slug', component: Products },
+      { path: 'products-custom', component: ProductsCustom },
       { path: 'product-customize/:id', component: ProductCustomization }, //ideiglenesen kirakom ide
       { path: 'cart', component: Cart },
       { path: 'signin', component: Signin },

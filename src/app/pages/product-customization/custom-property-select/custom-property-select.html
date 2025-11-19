@@ -1,9 +1,13 @@
-<div class="d-flex">
-  <button class="btn btn-link" (click)="previousProp()">Előző</button>
+<div class="d-flex justify-content-center">
+  <button class="btn btn-link" (click)="previousProp()">
+    <i class="fa-solid fa-angle-left"></i>
+  </button>
   <h4>{{ properties[currentProp].title }}</h4>
-  <button class="btn btn-link" (click)="nextProp()">következő</button>
+  <button class="btn btn-link" (click)="nextProp()">
+    <i class="fa-solid fa-angle-right"></i>
+  </button>
 </div>
-<div class="color-selector d-flex gap-2">
+<div class="color-selector d-flex gap-2 justify-content-center">
   <div class="border-1 border d-inline-block p-1 rounded-circle">
     <app-color
       color="transparent"

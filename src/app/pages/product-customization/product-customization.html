@@ -1,31 +1,32 @@
-<h2>Testreszabás</h2>
+<h2>{{ product?.name }} - Testreszabás</h2>
 <div class="row">
-  <div class="col-12 col-md-6">
-    <app-product-custom-viewer
-      [textureFile]="product?.customization?.textureFile || ''"
-      [selectedProperties]="selectedProperties"
-    ></app-product-custom-viewer>
+  <div class="col-12 col-md-6 p-2">
+    <div class="image">
+      <app-product-custom-viewer
+        [textureFile]="product?.customization?.textureFile || ''"
+        [selectedProperties]="selectedProperties"
+      ></app-product-custom-viewer>
+    </div>
   </div>
 
-  <div class="col-12 col-md-6">
+  <div class="col-12 col-md-6 p-2 d-flex flex-column justify-content-center">
     @if(properties.length>0){
     <app-custom-property-select
       [properties]="properties"
       (propertyChangeEvt)="onChange($event)"
     ></app-custom-property-select>
     }
+    <div class="mb-3 d-flex gap-1 py-5 justify-content-center">
+      <input
+        type="number"
+        name="amount"
+        id="amount"
+        value="1"
+        class="form-control w-auto"
+        placeholder=""
+        aria-describedby="helpId"
+      />
+      <button class="btn btn-primary" (click)="addToCart(1)">Kosárba</button>
+    </div>
   </div>
-</div>
-
-<div class="mb-3 d-flex gap-1 py-5 justify-content-end">
-  <input
-    type="number"
-    name="amount"
-    id="amount"
-    value="1"
-    class="form-control w-auto"
-    placeholder=""
-    aria-describedby="helpId"
-  />
-  <button class="btn btn-primary" (click)="addToCart(1)">Kosárba</button>
 </div>

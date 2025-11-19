@@ -11,16 +11,11 @@ import { ShortenPipe } from '../../shared/pipes/shorten-pipe';
   styleUrl: './products.scss',
 })
 export class Products {
-  isCustomPage = false;
   constructor(private route: ActivatedRoute, public productService: Product) {
-    this.route.url.subscribe((url) => {
-      this.isCustomPage = url[1] ? true : false;
-    });
+    /*   this.route.url.subscribe((url) => {
+  
+    }); */
 
-    if (this.isCustomPage) {
-      this.productService.getAllCustomizable();
-    } else {
-      this.productService.getAll();
-    }
+    this.productService.getAll();
   }
 }
